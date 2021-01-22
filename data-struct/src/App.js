@@ -1,5 +1,6 @@
 import React from "react";
 import Array from "./pages/Array";
+import Tree from "./pages/Tree";
 //import Nav from "./components/Nav";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,11 +13,11 @@ function App() {
     <NavEx />
     <div className = {""}>
         <Switch>
-          {/* <Route exact path = {"/"}>
-            <Search />
-          </Route> */}
-          <Route exact path = {"/" || "/array"}>
+          <Route path = {"/array"}>
             <Array />
+          </Route>
+           <Route exact path = {"/tree"}>
+            <Tree />
           </Route>
         </Switch>
     </div>

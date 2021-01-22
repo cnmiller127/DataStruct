@@ -1,55 +1,31 @@
-import React, {useEffect, useContext, useState} from "react";
+import React, { useState } from 'react';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, NavbarText } from 'reactstrap';
 import "./style.css";
-import {   Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText, } from 'reactstrap';
 
-function NavExp() {
-  
-  // const NavStat = () => {
-  //   const contextVal = useContext(NavContext);
-  //   return contextVal;
-  
-  // }
-  //   const navStatus = NavStat();
-  //   console.log(navStatus)
-  
-    // useEffect( () => {
-        
-        
-    //     }, [navStatus.status]);
+const NavEx = (props) => {
+  const [collapsed, setCollapsed] = useState(true);
 
-  const [isOpen, setIsOpen] = useState(false);      
-  const toggle = () => setIsOpen(!isOpen);
+  const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
     <div>
-    <Navbar color="info" light expand="md">
-    <NavbarBrand href="/">DATA STRUCTURE VISUALIZATION TOOL</NavbarBrand>
-    <NavbarToggler onClick={toggle} />
-    <Collapse isOpen={isOpen} navbar>
-      <Nav className="mr-auto" navbar>
-        <NavItem >
-          <NavLink href="/">Home</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href = '#'>Array</NavLink>
-        </NavItem>
-      </Nav>
-      <NavbarText></NavbarText>
-    </Collapse>
-  </Navbar>
-</div>
-    );
+      <Navbar id = "navBar" light >
+        <NavbarBrand href="/" className="mr-auto" id = "brand">DS VISUALIZATION TOOL</NavbarBrand>
+        <NavbarText id = "tools">🛠️</NavbarText>
+        <NavbarToggler id = "navToggler" onClick={toggleNavbar} className="mr-2" />
+        <Collapse isOpen={!collapsed} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink className = "navLink" href="/array">Array</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className = "navLink" href="/tree">Tree</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+  );
 }
 
-export default NavExp;
+export default NavEx;

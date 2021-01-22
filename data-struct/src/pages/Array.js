@@ -89,14 +89,14 @@ if(method === "push") {
     return (
         <div >
             <ArrDraw data = {arr} />
-            <Button color = "success" onClick = {handlePush}> Push</Button>
-            <Button color = "warning" onClick = {handlePop}> Pop</Button>
-            <Button color = "info" onClick = {handleInsert}> Insert</Button>
-            <Button color = "danger" onClick = {handleDelete}> Delete</Button>
-            <Form>
+            <Button color = "success" className = "btn" onClick = {handlePush}> Push</Button>
+            <Button color = "warning" className = "btn" onClick = {handlePop}> Pop</Button>
+            <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
+            <Button color = "danger" className = "btn" onClick = {handleDelete}> Delete</Button>
+            <Form className = "form">
                 <Label>Value to push: </Label>
-                <Input onChange = {handleChange} value = {formData}></Input>
-                <Button onClick = {handleEnterPush}>Enter</Button>
+                <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                <Button className = "btn" onClick = {handleEnterPush}>Enter</Button>
             </Form>
         </div>
     )
@@ -105,16 +105,16 @@ if(method === "insert") {
     return (
         <div>
             <ArrDraw data = {arr} />
-            <Button color = "success" onClick = {handlePush}> Push</Button>
-            <Button color = "warning" onClick = {handlePop}> Pop</Button>
-            <Button color = "info" onClick = {handleInsert}> Insert</Button>
-            <Button color = "danger" onClick = {handleDelete}> Delete</Button>
-            <Form>
+            <Button color = "success" className = "btn" onClick = {handlePush}> Push</Button>
+            <Button color = "warning" className = "btn" onClick = {handlePop}> Pop</Button>
+            <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
+            <Button color = "danger" className = "btn" onClick = {handleDelete}> Delete</Button>
+            <Form className = "form">
                 <Label>Index to Insert: </Label>
                 <Input onChange = {handleChangeI} value = {formData.index}></Input>
                 <Label>Value to Insert: </Label>
-                <Input onChange = {handleChangeV} value = {formData.value}></Input>
-                <Button onClick = {handleEnterIns}>Enter</Button>
+                <Input className = "input" onChange = {handleChangeV} value = {formData.value}></Input>
+                <Button className = "btn" onClick = {handleEnterIns}>Enter</Button>
             </Form>
         </div>
     )
@@ -123,14 +123,14 @@ if(method === "delete") {
     return (
         <div>
             <ArrDraw data = {arr} />
-            <Button color = "success" onClick = {handlePush}> Push</Button>
-            <Button color = "warning" onClick = {handlePop}> Pop</Button>
-            <Button color = "info" onClick = {handleInsert}> Insert</Button>
-            <Button color = "danger" onClick = {handleDelete}> Delete</Button>
-            <Form>
+            <Button color = "success" className = "btn" onClick = {handlePush}> Push</Button>
+            <Button color = "warning" className = "btn" onClick = {handlePop}> Pop</Button>
+            <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
+            <Button color = "danger" className = "btn" onClick = {handleDelete}> Delete</Button>
+            <Form className = "form">
                 <Label>Index to Delete: </Label>
-                <Input onChange = {handleChange} value = {formData}></Input>
-                <Button onClick = {handleEnterDelete}>Enter</Button>
+                <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                <Button className = "btn" onClick = {handleEnterDelete}>Enter</Button>
             </Form>
         </div>
     )

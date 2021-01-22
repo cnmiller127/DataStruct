@@ -1,5 +1,29 @@
 .active{
     font-weight: 900;
     text-decoration: underline;
-
 }
+
+#brand {
+    color: rgb(248, 70, 16);
+    padding: 0 0 0 0;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 5vh;
+}
+
+#navBar {
+    background-color:black;
+  }
+
+.navLink {
+      color: rgb(248, 70, 16) !important;
+  }
+
+  #navToggler {
+      background-color: rgb(248, 70, 16);
+  }
+  
+  #tools {
+      font-size: 5vh;
+      padding-right: 1%;
+  }
+  

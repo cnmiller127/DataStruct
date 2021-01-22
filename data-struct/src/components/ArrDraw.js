@@ -12,12 +12,14 @@ const ArrDraw = (props) => {
         y = height/50;
         w = width/20;
         h = width/20;
+        
         }
         else{
         x = width/50;
         y = height/50;
         w = width/12;
         h = width/12;
+        
         }
         ctx.fillStyle = '#000000';
         for(var i = 0; i < props.data.length; i++) {
@@ -25,7 +27,7 @@ const ArrDraw = (props) => {
             ctx.beginPath();
             ctx.rect(x + i*w, y, w, h);
             ctx.stroke();
-            ctx.font = "4vh Arial";
+            (width >= 768) ? ctx.font = "4vh Arial": ctx.font = "3vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w + i*w, y + 0.5*h);
@@ -50,7 +52,7 @@ const ArrDraw = (props) => {
       }, [draw]);
     
 
-        return ( <canvas ref = {canvasRef} {...props} />)
+        return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)
     }
 
 
