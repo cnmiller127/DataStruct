@@ -12,20 +12,14 @@ const TreeDraw = (props) => {
             y = height/15;
             w = width/10;
             h = width/25;
-            subH = width/15;
-            subW =  width/35;
             r = width/75;
-            blank = 18*(width)/1350;
-            
             }
         else if(width >= 768){
         x = width/2;
         y = height/20;
-        w = width/20;
-        h = width/20; 
-        r = width/50;
-        blank = 18*(width)/768;
-        
+        w = width/15;
+        h = width/30; 
+        r = width/75;
         }
         else{
         x = width/2;
@@ -33,18 +27,17 @@ const TreeDraw = (props) => {
         w = width/5;
         h = width/5;
         r = width/35;
-        blank = 18*(width)/320;
         }
         const H = h;
         const W = w; 
         const Blank = blank;
         ctx.fillStyle = '#000000';
         let root = props.data.root;
-        //console.log("Props: ", props.data);
-        let isRoot = true;
         let counter = 1;
         const treeDraw = (subroot, xC, yC) => {
             let w, blank;
+            blank = 0;
+            w = W/counter;
             ctx.beginPath();
             ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
             ctx.stroke();
@@ -52,14 +45,18 @@ const TreeDraw = (props) => {
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(subroot.val, xC, yC);
-            //console.log("counterS", counter);
-            w = W/counter;
-            blank = Blank/counter + (counter-1)*4;
             if(subroot.left) {
-                let xS = xC - blank;
-                let yS =  yC + h/w*(xC - xS);
-                let xE = xC - w + blank;
-                let yE =  yC + h/w*(xC - xE);
+                let m = -h/w;
+                let c = -m*xC + yC;        
+                let aQ = Math.pow(m, 2) + 1;
+                let bQ = -2*(xC + m*yC - m*c);
+                let cQ = xC*xC + yC*yC + c*c - r*r - 2*c*yC;
+                let xQ1 = (-bQ - Math.sqrt(bQ*bQ - 4*aQ*cQ))/(2*aQ);
+                let xQ2 = (-bQ + Math.sqrt(Math.pow(bQ, 2) - 4*aQ*cQ))/(2*aQ);
+                let xS = xQ1;
+                let yS = m*(xQ1) + c; // y = mx + c; 
+                let xE = xQ2 - w;
+                let yE = m*(xQ2 - w) + c;
                 ctx.beginPath();
                 ctx.moveTo(xS, yS);
                 ctx.lineTo(xE, yE);
@@ -68,11 +65,17 @@ const TreeDraw = (props) => {
                 treeDraw(subroot.left, xC - w, yC + h);
             }  
             if(subroot.right) {
-            //console.log("counterRIGHT", counter)
-            let xS = xC + blank;
-            let yS =  yC - h/w*(xC - xS);
-            let xE = xC + w - blank;
-            let yE =  yC - h/w*(xC - xE);
+            let m = h/w;
+            let c = -m*xC + yC;  
+            let aQ = Math.pow(m, 2) + 1;
+            let bQ = -2*(xC + m*yC - m*c);
+            let cQ = xC*xC + yC*yC + c*c - r*r - 2*c*yC;
+            let xQ1 = (-bQ - Math.sqrt(bQ*bQ - 4*aQ*cQ))/(2*aQ);
+            let xQ2 = (-bQ + Math.sqrt(Math.pow(bQ, 2) - 4*aQ*cQ))/(2*aQ);
+            let xS = xQ2;
+            let yS = m*(xQ2) + c; // y = mx + c; 
+            let xE = xQ1 + w;
+            let yE = m*(xQ1 +  w) + c;
             ctx.beginPath();
             ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
             ctx.stroke();

@@ -3,31 +3,13 @@ import TreeDraw from "../components/TreeDraw";
 import {Button, Form, Input, Label} from "reactstrap";
 import "../Style.css";
 import TreeClass from "../utils/treeObj";
-
+var tree = new TreeClass();
+tree.insert(7);
+tree.insert(5);
+// tree.insert(5);
 function Tree () {
-    let tree = new TreeClass();
-    tree.insert(6);
-    tree.insert(11);
-    tree.insert(3);
-    tree.insert(1);
-    tree.insert(5);
-    tree.insert(9);
-    tree.insert(11);
-    tree.insert(4);
-    tree.insert(2);
-    tree.insert(7);
-    tree.insert(8);
-    tree.insert(10);
-    tree.insert(12);
-    //____BASIC TREE:
-    // tree.insert(1);
-    // tree.insert(3);
-    // tree.insert(5);
-    // tree.insert(8);
-    // tree.insert(9);
-    // tree.insert(10);
     const [method, setMethod] = useState("insert");
-    const [treeSrc, setTreeSrc] = useState({...tree.tree});
+    const [treeSrc, setTreeSrc] = useState(tree.tree);
     const [insFormData, setInsFormData] = useState(" ")
     // Menu for selecting method
     const handleInsert = (e) => {
@@ -53,6 +35,10 @@ function Tree () {
         }
     }
   
+    useEffect(()=> {
+        //console.log(treeSrc);
+        console.log("insformData", insFormData);
+    })
 
 
 // THIS IS OUR TEST UNIT

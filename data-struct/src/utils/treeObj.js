@@ -1,4 +1,4 @@
-import React from "react";
+
 function Node (val){
     val ? this.val = val : this.val = null;
     val ? this.freq = this.freq = 1 : this.freq = 0; // change later
