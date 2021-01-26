@@ -10,7 +10,7 @@ const NavEx = (props) => {
   return (
     <div>
       <Navbar id = "navBar" light >
-        <NavbarBrand href="/#/array" className="mr-auto" id = "brand">DS VISUALIZATION TOOL</NavbarBrand>
+        <NavbarBrand href="/data-struct/#/array" className="mr-auto" id = "brand">DS VISUALIZATION TOOL</NavbarBrand>
         <NavbarText id = "tools">🛠️</NavbarText>
         <NavbarToggler id = "navToggler" onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
@@ -19,7 +19,7 @@ const NavEx = (props) => {
               <NavLink className = "navLink" href= "/data-struct/#/array">Array</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className = "navLink" href="/#/tree">Balanced Binary Tree</NavLink>
+              <NavLink className = "navLink" href="/data-struct/#/tree">Balanced Binary Tree</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
