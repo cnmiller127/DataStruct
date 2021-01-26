@@ -38,7 +38,7 @@ const TreeDraw = (props) => {
             let w, h, blank;
             blank = 0;
             w = W/counter;
-            h = H*counter*0.8; 
+            h = H; 
             ctx.beginPath();
             ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
             ctx.stroke();
