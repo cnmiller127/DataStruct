@@ -10,7 +10,7 @@ const NavEx = (props) => {
   return (
     <div>
       <Navbar id = "navBar" light >
-        <NavbarBrand href="/data-struct/#/array" className="mr-auto" id = "brand">DS VISUALIZATION TOOL</NavbarBrand>
+        <NavbarBrand href="/data-struct/#/tree" className="mr-auto" id = "brand">DS VISUALIZATION TOOL</NavbarBrand>
         <NavbarText id = "tools">🛠️</NavbarText>
         <NavbarToggler id = "navToggler" onClick={toggleNavbar} className="mr-2" />
         <Collapse isOpen={!collapsed} navbar>
