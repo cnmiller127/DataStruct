@@ -23,5 +23,9 @@ html, body, #root {
   width: 30%;
 }
 
+.dish {
+  float: right;
+}
+
 
 

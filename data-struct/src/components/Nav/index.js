@@ -19,6 +19,9 @@ const NavEx = (props) => {
               <NavLink className = "navLink" href= "/data-struct/#/array">Array</NavLink>
             </NavItem>
             <NavItem>
+              <NavLink className = "navLink" href="/data-struct/#/stack">Stack</NavLink>
+            </NavItem>
+            <NavItem>
               <NavLink className = "navLink" href="/data-struct/#/tree">Balanced Binary Tree</NavLink>
             </NavItem>
           </Nav>
