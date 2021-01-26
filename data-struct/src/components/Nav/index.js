@@ -16,10 +16,10 @@ const NavEx = (props) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink className = "navLink" href= "/#/array">Array</NavLink>
+              <NavLink className = "navLink" href= "data-struct/#/array">Array</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className = "navLink" href="/#/tree">Balanced Binary Tree</NavLink>
+              <NavLink className = "navLink" href="data-struct/#/tree">Balanced Binary Tree</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

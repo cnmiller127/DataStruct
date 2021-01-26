@@ -13,7 +13,7 @@ function App() {
     <div>
       <NavEx />
         <Switch>
-          <Route exact path="/" component={Array}/>
+          <Route exact path="/" component={Tree}/>
           <Route exact path = "/array" component = {Array}/>
           <Route exact path = "/tree" component = {Tree}/>
         </Switch>
