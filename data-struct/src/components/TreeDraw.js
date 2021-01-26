@@ -35,9 +35,10 @@ const TreeDraw = (props) => {
         let root = props.data.root;
         let counter = 1;
         const treeDraw = (subroot, xC, yC) => {
-            let w, blank;
+            let w, h, blank;
             blank = 0;
             w = W/counter;
+            h = H*counter*0.8; 
             ctx.beginPath();
             ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
             ctx.stroke();
