@@ -12,9 +12,9 @@ function App() {
   return (
     <div>
       <NavEx />
-          <Route exact path="/" component={Array} />
-          <Route path = "/array" component = {Array} />
-          <Route path = "/tree" component = {Tree}/>
+          <Route exact path="/" component={Array}/>
+          <Route exact path = "/array" component = {Array}/>
+          <Route exact path = "/tree" component = {Tree}/>
     </div>
   );
 }
