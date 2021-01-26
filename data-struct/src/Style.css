@@ -33,19 +33,19 @@ html, body, #root {
   color: black;
 }
 
-.hdr-img {
+/* .hdr-img {
   border: black;
   border-style: solid;
   height: auto;
   border-width: 1%;
-}
+} */
 
 .dish {
   width: 12%;
   height: auto;
 }
-.tree-img {
+/* .tree-img {
   width: 30%;
   height: auto;
-}
+} */
 
