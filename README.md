@@ -4,4 +4,4 @@ This client side app generates interactive visual representations of data struct
 
 [Click here](https://cnmiller127.github.io/data-struct/#/) to see the current state of the project. 
 
-![Preview ](./src/images/tree.png)
+![Preview ](.data-struct/src/images/tree.png)
