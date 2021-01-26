@@ -10,10 +10,11 @@ import "./Style.css";
 
 function App() {
   return (
-    <div className = {""}>
-    <NavEx />
-          <Route exact path = "/array" component = {Array} />
-          <Route exact path = "/tree" component = {Tree}/>
+    <div>
+      <NavEx />
+          <Route exact path="/" component={Array} />
+          <Route path = "/array" component = {Array} />
+          <Route path = "/tree" component = {Tree}/>
     </div>
   );
 }
