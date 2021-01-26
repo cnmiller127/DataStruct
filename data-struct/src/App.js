@@ -7,18 +7,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavEx from "./components/Nav/index.js";
 import "./Style.css";
 
+
 function App() {
   return (
   <Router>
     <NavEx />
     <div className = {""}>
         <Switch>
-          <Route exact path = {["/array", "/"]}>
-            <Array />
-          </Route>
-           <Route exact path = {"/tree"}>
-            <Tree />
-          </Route>
+          <Route exact path = {["/array", "/"]} component = {Array} />
+           <Route exact path = {"/tree"} component = {Tree}/>
         </Switch>
     </div>
   </Router>
