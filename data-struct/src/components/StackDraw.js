@@ -10,8 +10,8 @@ const StackDraw = (props) => {
         if(width >= 768){
         x = width/50;
         y = height/50;
-        w = width/30;
-        h = width/30;
+        w = width/8;
+        h = width/50;
         
         }
         else{
@@ -27,12 +27,12 @@ const StackDraw = (props) => {
             ctx.beginPath();
             ctx.rect(x, y + opp*h, w, h);
             ctx.stroke();
-            (width >= 768) ? ctx.font = "3vh Arial": ctx.font = "2vh Arial";
+            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "1.5vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w, y + 0.5*h + opp*h);
             ctx.font = "2vh Arial";
-            ctx.fillText(i, 0.5*x, y + 0.5*h + opp*w);
+            ctx.fillText(i, 0.5*x, y + 0.5*h + opp*h);
             
         }
         

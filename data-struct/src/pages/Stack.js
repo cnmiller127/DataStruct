@@ -46,42 +46,46 @@ const Stack = () => {
     },[arr, formData, , insFormData, method])
     
 
-if(method === "push") {
+
     return (
-        <div >
+        <div className = "px-2 py-3" >
+            <div className = "row no-gutters justify-content-center p-3">
+                <h1 className = "hdr">STACKS</h1>
+            </div>
+            <div className = "row no-gutters justify-content-center">
+                <img className = "dish hdr-img" src = "https://images.crateandbarrel.com/is/image/Crate/LoganStackingDinnerPlateWhiteS8SHF15"/>
+                <p className = "pt-3 px-5">The Stack operates on the Last In First Out (LIFO) principle. 
+                This is analagous to a stack of dishes where the last plate put on the top of the stack is the first 
+                plate to be used later. They are useful for converting infix expressions to postfix, backtracking 
+                algorithms, and many other functions.</p>
+                <p className = "px-5">The push and pop methods are typically O(1) in Javascript. Worst case occurs when 
+                size boundaries are encountered and the array needs to be copied to different sized array to 
+                accomodate for change which is O(n) time. 
+                In C, both functions are O(1) time if implementing the stack using an array. If using a linked list, the 
+                list should be flipped so the start is the top of the stack to make it O(1) time rather than traversing 
+                to the end of the list which is O(n) time.  </p>
+            </div>
             <div className = "row no-gutters" >
-            <div className = "col-3">
+                <div className = "col-3">
+            </div>
+            <div className = "col-4 pr-5 justify-content-end">
                     <Button color = "success" className = "btn" onClick = {handlePush}> Push</Button>
                     <Button color = "warning" className = "btn" onClick = {handlePop}> Pop</Button>
-                    <Form className = "form">
+                    <Form className = "">
                         <Label>Value to push: </Label>
                         <Input className = "input" onChange = {handleChange} value = {formData}></Input>
                         <Button className = "btn" onClick = {handleEnterPush}>Enter</Button>
                     </Form>
                 </div>
-                <div className = "col-1">
+                <div className = "col-3 justify-content-start">
                     <StackDraw data = {arr} />
                 </div>
-                <div className = "col-8" >
-                    <img className = "pt-3 pr-3 dish" src = "https://images.crateandbarrel.com/is/image/Crate/LoganStackingDinnerPlateWhiteS8SHF15" height = "200" width = "200"/>
-                    <p className = "pt-3">The Stack operates on the Last In First Out (LIFO) principle. 
-                    This is analagous to a stack of dishes where the last plate put on the top of the stack is the first 
-                    plate to be used later. They are useful for converting infix expressions to postfix, backtracking 
-                    algorithms, and many other functions.</p>
-                    <p className = "">The push and pop methods are typically O(1) in Javascript. Worst case occurs when 
-                    size boundaries are encountered and the array needs to be copied to different sized array to 
-                    accomodate for change which is O(n) time. 
-                    In C, both functions are O(1) time if implementing the stack using an array. If using a linked list, the 
-                    list should be flipped so the start is the top of the stack to make it O(1) time rather than traversing 
-                    to the end of the list which is O(n) time.  </p>
-
+                <div className = "col-2">
                 </div>
             </div>
         </div>
     )
 }
 
-
-}
 
 export default Stack;

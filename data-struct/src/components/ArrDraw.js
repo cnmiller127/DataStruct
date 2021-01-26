@@ -8,17 +8,17 @@ const ArrDraw = (props) => {
     let x, y, w, h;
     const draw = ctx => {
         if(width >= 768){
-        x = width/50;
+        x = width/300;
         y = height/50;
-        w = width/20;
-        h = width/20;
+        w = width/40;
+        h = width/40;
         
         }
         else{
-        x = width/50;
+        x = width/300;
         y = height/50;
-        w = width/12;
-        h = width/12;
+        w = width/60;
+        h = width/60;
         
         }
         ctx.fillStyle = '#000000';
@@ -27,7 +27,7 @@ const ArrDraw = (props) => {
             ctx.beginPath();
             ctx.rect(x + i*w, y, w, h);
             ctx.stroke();
-            (width >= 768) ? ctx.font = "4vh Arial": ctx.font = "3vh Arial";
+            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "1.5vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w + i*w, y + 0.5*h);
@@ -43,7 +43,7 @@ const ArrDraw = (props) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         canvas.width = window.innerWidth;
-        canvas.height = 0.2*window.innerHeight;
+        canvas.height = 0.1*window.innerHeight;
         // canvas.style.width = window.innerWidth;
         // canvas.style.height = 0.6*window.innerHeight;
         //context.clearRect(0,0,canvas.width, canvas.height);

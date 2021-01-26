@@ -23,9 +23,29 @@ html, body, #root {
   width: 30%;
 }
 
-.dish {
-  float: right;
+.btnLabel {
+  display: flex; 
 }
 
+.hdr {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 8vh;
+  color: black;
+}
 
+.hdr-img {
+  border: black;
+  border-style: solid;
+  height: auto;
+  border-width: 1%;
+}
+
+.dish {
+  width: 12%;
+  height: auto;
+}
+.tree-img {
+  width: 30%;
+  height: auto;
+}
 
