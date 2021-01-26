@@ -13,7 +13,7 @@ function App() {
     <NavEx />
     <div className = {""}>
         <Switch>
-          <Route path = {"/array"}>
+          <Route exact path = {["/array", "/"]}>
             <Array />
           </Route>
            <Route exact path = {"/tree"}>

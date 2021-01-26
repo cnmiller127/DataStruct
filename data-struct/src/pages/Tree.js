@@ -8,17 +8,6 @@ var tree = new bTree();
 tree.insert(20);
 tree.insert(10);
 tree.insert(30);
-// tree.insert(11);
-// tree.insert(12);
-// tree.insert(13);
-// tree.insert(14);
-// tree.insert(15);
-// tree.insert(16);
-// tree.insert(17);
-// tree.insert(18);
-// tree.insert(19);
-// tree.insert(21);
-// tree.insert(32);
 function Tree () {
     const [method, setMethod] = useState("insert");
     const [treeSrc, setTreeSrc] = useState(tree.tree);
