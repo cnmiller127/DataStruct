@@ -32,20 +32,36 @@ html, body, #root {
   font-size: 8vh;
   color: black;
 }
-
-/* .hdr-img {
-  border: black;
+.img-hdr {
+  border-width: 2%;
   border-style: solid;
-  height: auto;
-  border-width: 1%;
-} */
-
-.dish {
-  width: 12%;
-  height: auto;
 }
-/* .tree-img {
-  width: 30%;
-  height: auto;
-} */
+
+/* For lg and xl */
+@media screen and (min-width: 992px) {
+ 
+  .img-hdr{
+     width: 18%;
+     height: auto;
+
+  }
+} 
+/* For lg and xl */
+@media screen and (max-width: 992px) {
+ 
+   .img-hdr{
+      width: 10%;
+      height: auto;
+
+   }
+} 
+/* For lg and xl */
+@media screen and (max-width: 768px) {
+ 
+    .img-hdr{
+      width:85%;
+      height: auto; 
+    }
+
+}
 

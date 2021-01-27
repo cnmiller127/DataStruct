@@ -52,7 +52,7 @@ if(method === "insert") {
                 <h1 className = "hdr">TREES</h1>
             </div>
             <div className = "row no-gutters justify-content-center p-3">
-                <img className = "img-thumbnail" src = "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218.jpg" width = "300" height = "200"></img>
+                <img className = "img-hdr" src = "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218.jpg" width = "300" height = "200"></img>
             </div>
             <div className = "row no-gutters pt-3 px-5">
                 <p>The binary balanced tree consists of a hierarchy of nodes that store data. Every tree has a root node at the
