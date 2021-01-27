@@ -39,31 +39,30 @@ html, body, #root {
   border-style: solid;
 }
 
-@media screen and (min-width: 992px){
+@media only screen and (min-width: 992px){
   .img-hdr{
      width: 25%;
      height: auto;
-
   }
 } 
 
-@media screen and (max-width: 992px){
+@media only screen and (max-width: 992px) and (min-width: 769px){
    .img-hdr{
       width: 20%;
       height: auto;
    }
 } 
 /* For lg and xl */
-@media screen and (max-width: 768px){
+@media only screen and (max-width: 768px) and (min-width: 481px){
     .img-hdr{
       max-width: 100%;
       height: auto; 
     }
 }
-@media screen and (max-width: 480px) {
+@media only screen and (max-width: 480px){
   .img-hdr{
-    max-width: 25%;
-    max-height: 25%;
+    max-width: 90%;
+    max-height: 200px;
   }
 }
 

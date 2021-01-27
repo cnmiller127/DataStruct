@@ -52,8 +52,10 @@ const Stack = () => {
             <div className = "row no-gutters justify-content-center p-3">
                 <h1 className = "hdr">STACKS</h1>
             </div>
-            <div className = "row no-gutters justify-content-center">
+            <div className = "row no-gutters justify-content-center" >
                 <img className = "rounded img-hdr img-fluid" src = "https://images.crateandbarrel.com/is/image/Crate/LoganStackingDinnerPlateWhiteS8SHF15"/>
+            </div>
+            <div className = "row no-gutters justify-content-center">
                 <p className = "pt-3 px-5">The Stack operates on the Last In First Out (LIFO) principle. 
                 This is analagous to a stack of dishes where the last plate put on the top of the stack is the first 
                 plate to be used later. They are useful for converting infix expressions to postfix, backtracking 
