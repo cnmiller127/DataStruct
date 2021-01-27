@@ -38,6 +38,11 @@ html, body, #root {
   border-width: 2%;
   border-style: solid;
 }
+.navComp {
+  width:100%;
+  height: auto; 
+  overflow: visible;
+}
 
 @media only screen and (min-width: 992px){
   .img-hdr{
@@ -53,9 +58,9 @@ html, body, #root {
    }
 } 
 /* For lg and xl */
-@media only screen and (max-width: 768px) and (min-width: 481px){
+@media only screen and (max-width: 769px) and (min-width: 481px){
     .img-hdr{
-      max-width: 100%;
+      width: 30%;
       height: auto; 
     }
 }

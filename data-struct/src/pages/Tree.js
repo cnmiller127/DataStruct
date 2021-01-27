@@ -48,13 +48,13 @@ function Tree () {
 if(method === "insert") {
     return (
         <div>
-            <div className = "row no-gutters justify-content-center p-3">
+            <div className = "row no-gutters justify-content-center p-md-3">
                 <h1 className = "hdr">TREES</h1>
             </div>
             <div className = "row no-gutters justify-content-center p-3">
                 <img className = " rounded img-fluid img-hdr" src = "https://arbordayblog.org/wp-content/uploads/2018/06/oak-tree-sunset-iStock-477164218.jpg" width = "300" height = "200"></img>
             </div>
-            <div className = "row no-gutters pt-3 px-5">
+            <div className = "row no-gutters p-2 pt-md-3 px-md-5">
                 <p>The binary balanced tree consists of a hierarchy of nodes that store data. Every tree has a root node at the
                     top of the structure. <strong>In the visualizer below, </strong> 
                     the tree is operating on the condition that every parent node has 2 or less children and 

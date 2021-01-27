@@ -119,7 +119,7 @@ const Array = () => {
 
 
     return (
-        <div className = "px-5 py-3">
+        <div className = "pt-2 p-1 px-md-5 py-md-3">
             <div className = "row no-gutters justify-content-center p-3">
                 <h1 className = "hdr">ARRAYS</h1>
             </div>

@@ -27,3 +27,8 @@
       padding-right: 1%;
   }
   
+  @media only screen and (max-width: 480px){
+    #brand  {
+        font-size: 3vh; 
+    }
+  }
