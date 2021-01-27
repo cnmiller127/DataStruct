@@ -179,11 +179,12 @@ const Array = () => {
                 </div>
             }
             <div className = "row no-gutters">
-                <p>Arrays are objects in Javascript and stored in the heap. Arrays are a linear arrangement of indices that contain data.
-                    They are capable of storing primitive data types, other objects (including arrays), and combinations of both. In C++, 
-                    they can only store one primitive data type and are a fixed size. If the size needs to be specified during
-                    run-time, the array must be manually dynamically allocated in the heap.</p>
-                <ol>
+                <p>Arrays are objects in Javascript. Often when they are outside of local functions they are stored in the heap, but this can vary depending on the JavaScript engine implementation. Arrays are a linear arrangement of indices that contain data.
+                    They are capable of storing primitive data types, other objects (including arrays), and combinations of both in JavaScript. In a lower level language like C, 
+                    they can only store one primitive data type and are a fixed size. If arrays are statically allocated, they are stored in the stack memory and the size must be known at compile time.
+                    If the size needs to be specified during
+                    run-time, the array must be manually dynamically allocated in the heap using the malloc() function, and must be released once it is obsolete by the program using the free() function.</p>
+                <ol> <strong>List of Array Functions </strong>
                     <li>Push- inserts new entry after last index of array</li>
                     <li>Pop - removes and returns last entry in the array</li>
                     <li>Insert -  inserts new entry at a specified index in the array</li>

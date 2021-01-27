@@ -66,8 +66,8 @@ const Stack = () => {
                 <p className = "p-1 px-md-5">The push and pop methods are typically O(1) in Javascript. Worst case occurs when 
                 size boundaries are encountered and the array needs to be copied to different sized array to 
                 accomodate for change which is O(n) time. 
-                In C, both functions are O(1) time if implementing the stack using an array. If using a linked list, the 
-                list should be flipped so the start is the top of the stack to make it O(1) time rather than traversing 
+                In C, both functions are O(1) time if implementing the stack using a fixed size array. Worst case can be O(n) if dynamically allocating memory and run out of space. If using a linked list, the 
+                list should be flipped so the start is the top of the stack to make push and pop O(1) time rather than traversing 
                 to the end of the list which is O(n) time.  </p>
             </div>
             <div className = "row no-gutters" >

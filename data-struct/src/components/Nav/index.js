@@ -16,13 +16,16 @@ const NavEx = (props) => {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             <NavItem>
-              <NavLink className = "navLink" href= "/data-struct/#/array">Array</NavLink>
+              <NavLink className = "navLink" href= "/data-struct/#/array">Arrays</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className = "navLink" href="/data-struct/#/stack">Stack</NavLink>
+              <NavLink className = "navLink" href="/data-struct/#/stack">Stacks</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink className = "navLink" href="/data-struct/#/tree">Balanced Binary Tree</NavLink>
+              <NavLink className = "navLink" href="/data-struct/#/queue">Queues</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className = "navLink" href="/data-struct/#/tree">Balanced Binary Trees</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
