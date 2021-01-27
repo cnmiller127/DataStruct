@@ -23,9 +23,9 @@ const TreeDraw = (props) => {
         }
         else{
         x = width/2;
-        y = height/30;
-        w = width/5;
-        h = width/5;
+        y = height/20;
+        w = width/4;
+        h = width/6;
         r = width/35;
         }
         const H = h;

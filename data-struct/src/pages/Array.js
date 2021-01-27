@@ -179,7 +179,7 @@ const Array = () => {
                 </div>
             }
             <div className = "row no-gutters">
-                <p>Arrays are objects in Javascript and stored in the heap. Arrays are a linnear arrangement of indecies that contain data.
+                <p>Arrays are objects in Javascript and stored in the heap. Arrays are a linear arrangement of indices that contain data.
                     They are capable of storing primitive data types, other objects (including arrays), and combinations of both. In C++, 
                     they can only store one primitive data type and are a fixed size. If the size needs to be specified during
                     run-time, the array must be manually dynamically allocated in the heap.</p>
@@ -192,7 +192,7 @@ const Array = () => {
                     <li>Unshift - inserts new entry at the beginning of the array </li>
                 </ol>
                 <p>Functions that deal with the end of the array like push and pop are executed in consant time O(1). However, functions
-                    that deal with the beginning of the array like shift and unshift take linnear time O(n) because all of the data needs to
+                    that deal with the beginning of the array like shift and unshift take linear time O(n) because all of the data needs to
                     be shifted within the array. Insert and delete (splice in JS) can take O(1) to O(n) time depending on their location in the array, 
                     the latter time  being closer to the beginning of the array due to shifting. 
                 </p>

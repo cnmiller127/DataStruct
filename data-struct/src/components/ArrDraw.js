@@ -15,10 +15,10 @@ const ArrDraw = (props) => {
         
         }
         else{
-        x = width/300;
+        x = 0;
         y = height/50;
-        w = width/60;
-        h = width/60;
+        w = width/15;
+        h = width/15;
         
         }
         ctx.fillStyle = '#000000';
@@ -27,11 +27,11 @@ const ArrDraw = (props) => {
             ctx.beginPath();
             ctx.rect(x + i*w, y, w, h);
             ctx.stroke();
-            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "1.5vh Arial";
+            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w + i*w, y + 0.5*h);
-            ctx.font = "2vh Arial";
+            (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
             ctx.fillText(i, x + 0.5*w + i*w, y + 1.3*h);
             
         }

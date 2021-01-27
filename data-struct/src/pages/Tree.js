@@ -60,17 +60,18 @@ if(method === "insert") {
                     the tree is operating on the condition that every parent node has 2 or less children and 
                     the parent's value is greater than its 
                     left child but less than its right child, hence the name: balanced binary tree. The tree stays balanced by keeping track 
-                    of how many nodes are present on each side of the tree its sub-tree. A sub-tree may start at any node in the tree other than the root, and includes every 
+                    of how many nodes are present on each side of the tree and its sub-trees. A sub-tree may start at any node in the tree other than the root, and includes every 
                     descendent below it. The purpose 
                     of this balancing act is to keep as many nodes in the tree in the binary structure of having a parent and two children as possible. 
-                    This allows us to recursively iterate through the tree in O(log n) time, which is faster than O(n) linnear time, which would occur if 
+                    This allows us to recursively iterate through the tree in O(log n) time, which is faster than O(n) linear time, which would occur if 
                     the nodes were ordered in a unary structure (i.e arrays).</p>
                     <p>Notice for each level (K) of the tree, the number of nodes increases from the level above it by a factor of two. 
                         Total Nodes(N) = 2<sup>0</sup> + 2<sup>1</sup> + 2<sup>2</sup> + 2<sup>3</sup>... + 2<sup>K</sup>. This
                         simplifies to Total Nodes(N) = 2<sup>K</sup> + 1, where K = 0  at the root node and increases by 1 every
                         level down the tree. 
                     </p>
-                    <p>This tree was created in Javascript by creating an object (node) that has a value property, and two other properties that point to its left and right children. Objects are created in the heap memory in Javascript which means they are call by reference.
+                    <p>This tree was created in Javascript by creating an object (node) that has a value property, and two other properties that point to its 
+                        left and right children. Objects are created in the heap memory in Javascript which means they are called by reference.
                         If using C/C++, memory needs to be manually dynamicaly allocated in the heap. Nodes would be created in the heap that point to their children. When accessing information from the tree, a pointer to the address of the root node must be used.
                     </p>
             </div>

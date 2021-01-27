@@ -15,10 +15,10 @@ const StackDraw = (props) => {
         
         }
         else{
-        x = width/50;
+        x = width/20;
         y = height/50;
-        w = width/12;
-        h = width/12;
+        w = width/8;
+        h = width/16;
         
         }
         ctx.fillStyle = '#000000';
@@ -27,11 +27,11 @@ const StackDraw = (props) => {
             ctx.beginPath();
             ctx.rect(x, y + opp*h, w, h);
             ctx.stroke();
-            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "1.5vh Arial";
+            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w, y + 0.5*h + opp*h);
-            ctx.font = "2vh Arial";
+            (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
             ctx.fillText(i, 0.5*x, y + 0.5*h + opp*h);
             
         }
@@ -44,10 +44,6 @@ const StackDraw = (props) => {
         const context = canvas.getContext('2d');
         canvas.width = 0.3*window.innerWidth;
         canvas.height = window.innerHeight;
-        // canvas.style.width = window.innerWidth;
-        // canvas.style.height = 0.6*window.innerHeight;
-        //context.clearRect(0,0,canvas.width, canvas.height);
-        
         draw(context);
       }, [draw]);
     
