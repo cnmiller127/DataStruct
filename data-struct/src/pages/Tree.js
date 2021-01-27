@@ -5,6 +5,9 @@ import "../Style.css";
 import TreeClass from "../utils/treeObj";
 import bTree from "../utils/balancedTree";
 var tree = new bTree();
+tree.insert(5);
+tree.insert(1);
+tree.insert(8);
 function Tree () {
     const [method, setMethod] = useState("insert");
     const [treeSrc, setTreeSrc] = useState(tree.tree);

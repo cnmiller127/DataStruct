@@ -18,13 +18,16 @@ const Stack = () => {
         e.preventDefault();
         setMethod("push");
     }
+    const handlePop = (e) => {
+        e.preventDefault();
+        setMethod("pop");
+    }
     
     // Methods for array mutation
     //PUSH:
     const handleChange = (e) => {
         e.preventDefault();
         e.target.value ? setFormData(e.target.value) : setFormData(" ");
-        
     }
     const handleEnterPush = (e) => {
         e.preventDefault();
@@ -32,7 +35,7 @@ const Stack = () => {
         
     }
     //POP: 
-    const handlePop = (e) => {
+    const handleEnterPop = (e) => {
         e.preventDefault();
         let temp = arr;
         temp.pop();
@@ -68,21 +71,29 @@ const Stack = () => {
                 to the end of the list which is O(n) time.  </p>
             </div>
             <div className = "row no-gutters" >
-                <div className = "col-md-3">
-            </div>
-            <div className = "col-6 col-md-4 pr-md-5 px-1 justify-content-end">
-                    <Button color = "success" className = "btn" onClick = {handlePush}> Push</Button>
-                    <Button color = "warning" className = "btn" onClick = {handlePop}> Pop</Button>
-                    <Form className = "">
+                <div className = "col-md-4">
+                </div>
+                <div className = " col-6 col-md-3 justify-content-md-end">
+                    <Button color = "success" className = "btn float-md-right" onClick = {handlePush}> Push</Button>
+                    <Button color = "warning" className = "btn float-md-right" onClick = {handlePop}> Pop</Button>
+                    {(method === "push") && (
+                    <Form className = "form float-md-right">
                         <Label>Value to push: </Label>
                         <Input className = "input" onChange = {handleChange} value = {formData}></Input>
-                        <Button className = "btn" onClick = {handleEnterPush}>Enter</Button>
+                        <Button className = "btn enterBtn stkComp" color = "dark" onClick = {handleEnterPush}>ENTER</Button>
                     </Form>
+                    )}
+                    {(method === "pop") &&
+                        <div className = "float-md-right d-block">
+                            <Label className = "btnLabel m-1 d-block">Press Enter to pop: </Label>
+                            <Button className = "btn enterBtn m-1 d-block float-right" color = "dark" onClick = {handleEnterPop}>ENTER</Button>
+                        </div>
+                    }
                 </div>
-                <div className = "col-6 col-md-3 justify-content-start">
+                <div className = "col-6 col-md-2 justify-content-md-start">
                     <StackDraw data = {arr} />
                 </div>
-                <div className = "col-md-2">
+                <div className = "col-md-3">
                 </div>
             </div>
         </div>
