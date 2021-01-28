@@ -29,7 +29,7 @@ function Tree () {
         e.preventDefault();
         if(parseInt(insFormData)){
             setInsFormData("");
-            tree.insert(insFormData);
+            tree.insert(parseInt(insFormData));
             setTreeSrc({...tree.tree});
         }
         else{
