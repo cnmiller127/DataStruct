@@ -52,8 +52,8 @@ const TreeDraw = (props) => {
                     r= 0.5*r;
                 }
                 else{
-                    ctx.font = "1.2vh Impact";
-                    r = 0.55*r;
+                    ctx.font = "1.3vh Impact";
+                    r = 0.65*r;
                 }
                 
             }
