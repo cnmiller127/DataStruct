@@ -5,40 +5,39 @@ import useWindow from "../utils/useWindow";
 const TreeDraw = (props) => {
     const canvasRef = useRef(null);
     const [width, height] = useWindow();
-    let x, y, w, h, r, blank;
-    let colors = ["red", "aqua", "gold", "lavender", "orange"]
+    let x, y, w, h, r;
+    let colors = ["red", "deepskyblue", "lime", "mediumpurple", "yellow", "salmon", "white", "white"]
     const draw = ctx => {
-        if(width >= 768){
+        if(width >= 768 && height >= 998){
             x = width/2;
             y = height/15;
-            w = width/10;
-            h = width/25;
-            r = width/75;
+            w = width/5;
+            h = width/10;
+            r = width/50;
             }
         else if(width >= 768){
-        x = width/2;
-        y = height/20;
-        w = width/15;
-        h = width/30; 
-        r = width/75;
+            x = width/2;
+            y = height/20;
+            w = width/10;
+            h = width/20; 
+            r = width/75;
         }
         else{
-        x = 0.6*width;
-        y = height/20;
-        w = width/4;
-        h = width/8;
-        r = width/35;
+            x = 0.6*width;
+            y = height/20;
+            w = width/4;
+            h = width/6;
+            r = width/28;
         }
+       
         const H = h;
         const W = w; 
         const R = r; 
-        const Blank = blank;
         ctx.fillStyle = '#000000';
         let root = props.data.root;
         let counter = 1;
         const treeDraw = (subroot, xC, yC) => {
-            let w, h, r, blank;
-            blank = 0;
+            let w, h, r;
             w = W;
             h = H;
             r = R; 
@@ -48,8 +47,29 @@ const TreeDraw = (props) => {
             ctx.fillStyle = colors[counter-1];
             ctx.fill();
             ctx.stroke();
-            (width >= 768) ? ctx.font = "3vh Arial": ctx.font = "2vh Arial";
-            counter >= 5 && (ctx.font = "2vh Arial");
+            if(counter < 5) {
+                if(width >= 768 && height >= 998){
+                    ctx.font = "1.5vh Impact";
+                }
+                else if(width >= 768){
+                    ctx.font = "2.5vh Impact"
+                }
+                else{
+                    ctx.font = "1.5vh Impact"
+                }
+            }
+            else{
+                if(width >= 768 && height >= 998){
+                    ctx.font = "1.1vh Impact";
+                }
+                else if(width >= 768){
+                    ctx.font = "2vh Impact"
+                }
+                else{
+                    ctx.font = "1.2vh Impact"
+                }
+                
+            }
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillStyle = "black";
@@ -102,12 +122,12 @@ const TreeDraw = (props) => {
             // ctx.fillStyle = colors[counter-1];
             // ctx.stroke();
             // ctx.fill();
-            (width >= 768) ? ctx.font = "3vh Arial": ctx.font = "2vh Arial";
-            counter >= 5 && (ctx.font = "1vh Arial");
-            ctx.textAlign="center"; 
-            ctx.textBaseline = "middle";
-            ctx.fillStyle = "black";
-            ctx.fillText(subroot.val, xC, yC);
+            // (width >= 768) ? ctx.font = "3vh Arial": ctx.font = "2vh Arial";
+            // counter >= 5 && (ctx.font = "1vh Arial");
+            // ctx.textAlign="center"; 
+            // ctx.textBaseline = "middle";
+            // ctx.fillStyle = "black";
+            // ctx.fillText(subroot.val, xC, yC);
             ctx.beginPath();
             ctx.moveTo(xS, yS);
             ctx.lineTo(xE, yE);
@@ -116,7 +136,6 @@ const TreeDraw = (props) => {
             treeDraw(subroot.right, xC + w, yC + h);
             }
             counter--;
-            //console.log("counterE", counter);
         }
             treeDraw(root, x, y);
     }
@@ -137,7 +156,6 @@ const TreeDraw = (props) => {
         else if(width < 540) {
             canvas.height = window.innerHeight;
             canvas.width = 2*window.innerWidth;
-            console.log("RED")
         }
         
         draw(context);
