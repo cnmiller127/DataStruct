@@ -44,13 +44,13 @@ const Array = () => {
     const handleChange = (e) => {
         e.preventDefault();
         e.target.value ? setFormData(parseInt(e.target.value)) : setFormData(" ");
-        console.log(e.target.value);
         
     }
     //PUSH 
     const handleEnterPush = (e) => {
         e.preventDefault();
         setArr([...arr, formData]);
+        setFormData("");
         
     }
     //POP: 
@@ -59,6 +59,7 @@ const Array = () => {
         let temp = arr;
         temp.pop();
         setArr([...temp]);
+        setFormData("");
     }
     // INSERT: 
     const handleChangeI = (e) => {
@@ -78,6 +79,7 @@ const Array = () => {
             temp.splice(insFormData.index,0, insFormData.value);
             console.log(temp);
             setArr([...temp]);
+            setFormData("");
         }
     }
     // DELETE
@@ -88,6 +90,7 @@ const Array = () => {
         let temp = arr;
         temp.splice(formData, 1);
         setArr([...temp]);
+        setFormData("");
         }
     }
     // Shift
@@ -97,6 +100,7 @@ const Array = () => {
         let temp = arr;
         temp.shift();
         setArr([...temp]);
+        setFormData("");
         }
     }
 
@@ -106,6 +110,7 @@ const Array = () => {
         let temp = arr;
         temp.unshift(formData);
         setArr([...temp]);
+        setFormData("");
         
     }
 

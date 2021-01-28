@@ -32,6 +32,7 @@ const Stack = () => {
     const handleEnterPush = (e) => {
         e.preventDefault();
         setArr([...arr, formData]);
+        setFormData("");
         
     }
     //POP: 
@@ -40,6 +41,7 @@ const Stack = () => {
         let temp = arr;
         temp.pop();
         setArr([...temp]);
+        setFormData("");
     }
    
 // THIS IS OUR TEST UNIT

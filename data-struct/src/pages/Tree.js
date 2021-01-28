@@ -22,17 +22,18 @@ function Tree () {
     // INSERT: 
     const handleChange = (e) => {
         e.preventDefault();
-        if(parseInt(e.target.value)){
-        setInsFormData(parseInt(e.target.value));
-        }
+        e.target.value ? setInsFormData(e.target.value) : setInsFormData("");
     }
 
     const handleEnterIns = (e) => {
         e.preventDefault();
-        if(insFormData){
+        if(parseInt(insFormData)){
+            setInsFormData("");
             tree.insert(insFormData);
-            console.log("direct src: ", tree)
             setTreeSrc({...tree.tree});
+        }
+        else{
+            setInsFormData("Invalid Entry");
         }
     }
   
@@ -48,7 +49,7 @@ function Tree () {
         console.log("insformData", insFormData);
     },[treeSrc, insFormData, method])
     
-if(method === "insert") {
+
     return (
         <div>
             <div className = "row no-gutters justify-content-center p-md-3">
@@ -78,22 +79,22 @@ if(method === "insert") {
                         If using C/C++, memory needs to be manually dynamicaly allocated in the heap. Nodes would be created in the heap that point to their children. When accessing information from the tree, a pointer to the address of the root node must be used.
                     </p>
             </div>
-            <div className = "row no-gutters px-5">
+            <div className = "row no-gutters px-5 justify-content-center">
                 <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
             </div>
-            <div className = "row no-gutters px-5">
-                <Form className = "form">
+            <div className = "row no-gutters px-5 justify-content-center">
+                <Form className = "form" onSubmit = {handleEnterIns}>
                     <Label>Value to Insert: </Label>
-                    <Input className = "input" onChange = {handleChange} ></Input>
+                    <Input className = "input" onChange = {handleChange} value = {insFormData}></Input>
                     <Button className = "btn" onClick = {handleEnterIns}>Enter</Button>
                 </Form>
             </div>
-            <div className = "row no-gutters">
+            <div >
                 <TreeDraw data = {treeSrc} />
             </div>
         </div>
     )
-}
+
 
 
 }

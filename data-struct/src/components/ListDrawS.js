@@ -1,0 +1,95 @@
+import React, {useRef, useState, useEffect} from 'react';
+import "../Style.css";
+import useWindow from "../utils/useWindow";
+
+const ListDrawS = (props) => {
+    const canvasRef = useRef(null);
+    const [width, height] = useWindow();
+    let x, y, w, h, lw, al;
+    let arrowAng = 20 * Math.PI/180;
+    const draw = ctx => {
+        // Ipad
+        if(width >= 540 && height > 998) {
+            x = width/300;
+            y = height/50;
+            w = width/40;
+            h = width/40;
+            lw = width/50;
+            al = 12;
+        }
+        else if(width >= 768){
+        x = width/300;
+        y = height/50;
+        w = width/40;
+        h = width/40;
+        lw = width/50;
+        al = 12;
+        
+        }
+        else{
+        x = 0;
+        y = height/50;
+        w = width/15;
+        h = width/15;
+        lw = width/30;
+        al = 10;
+        
+        }
+        ctx.fillStyle = '#000000';
+        let p = props.data.front;
+        console.log(props.data);
+        let i = 0;
+        while(p) {
+            ctx.beginPath();
+            ctx.rect(x + i*w + i*lw, y, w, h);
+            ctx.rect(x + i*w + i*lw, y + h, w, h);
+            ctx.stroke();
+            if(p.next) {
+                ctx.beginPath();
+                ctx.moveTo(x + w + i*(w + lw), y + 1.5*h); 
+                ctx.lineTo(x + w + i*(w + lw) + lw, y + 1.5*h);
+                ctx.moveTo(x + w + i*(w + lw) + lw, y + 1.5*h);
+                ctx.lineTo(x + w + i*(w + lw) + lw - al*Math.cos(arrowAng), y + 1.5*h + al*Math.sin(arrowAng));
+                ctx.moveTo(x + w + i*(w + lw) + lw, y + 1.5*h);
+                ctx.lineTo(x + w + i*(w + lw) + lw - al*Math.cos(arrowAng), y + 1.5*h - al*Math.sin(arrowAng));
+                ctx.stroke();
+            }
+            (width >= 996) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
+            ctx.textAlign="center"; 
+            ctx.textBaseline = "middle";
+            ctx.fillText(p.val, x + 0.5*w + i*w + i*lw, y + 0.5*h);
+            (width >= 996) ? ctx.font = "1.5vh Arial": ctx.font = "1vh Arial";
+            i===0 ? ctx.fillText("Front", x + 0.5*w + i*w + i*lw, y + 1.3*h): ctx.fillText("*", x + 0.5*w + i*w + i*lw, y + 1.3*h)
+            ctx.fillText(i, x + 0.5*w + i*w + i*lw, y + 2.3*h)
+            p = p.next;
+            i++;
+        }
+        
+      }
+      
+      useEffect(() => {
+        
+        const canvas = canvasRef.current;
+        const context = canvas.getContext('2d');
+        
+        if(width > 996 & height < 996)  {
+            canvas.height = window.innerHeight*0.2;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width < 996 & height > 996)  {
+            canvas.height = window.innerHeight*0.05;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width < 540) {
+            canvas.height = window.innerHeight*.1;
+            canvas.width = 3*window.innerWidth;
+        }
+        draw(context);
+      }, [draw]);
+    
+
+        return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)
+    }
+
+
+export default ListDrawS; 

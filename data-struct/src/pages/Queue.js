@@ -34,6 +34,7 @@ const Queue = () => {
         let temp = arr;
         temp.unshift(formData);
         setArr([...temp]);
+        setFormData("");
         
     }
     //Dequeue: 
@@ -42,6 +43,7 @@ const Queue = () => {
         let temp = arr;
         temp.pop();
         setArr([...temp]);
+        setFormData("");
     }
    
 // THIS IS OUR TEST UNIT
