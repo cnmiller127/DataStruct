@@ -5,8 +5,9 @@ import useWindow from "../utils/useWindow";
 const TreeDraw = (props) => {
     const canvasRef = useRef(null);
     const [width, height] = useWindow();
+    console.log(width, height)
     let x, y, w, h, r;
-    let colors = ["red", "deepskyblue", "lime", "mediumpurple", "yellow", "salmon", "white", "white"]
+    let colors = ["red", "deepskyblue", "lime", "mediumpurple", "yellow", "salmon", "white", "white"];
     const draw = ctx => {
         if(width >= 768 && height >= 998){
             x = width/2;
@@ -41,35 +42,37 @@ const TreeDraw = (props) => {
             w = W;
             h = H;
             r = R; 
-            if(counter >= 5) r=r/2;
-            ctx.beginPath();
-            ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
-            ctx.fillStyle = colors[counter-1];
-            ctx.fill();
-            ctx.stroke();
             if(counter < 5) {
                 if(width >= 768 && height >= 998){
                     ctx.font = "1.5vh Impact";
                 }
                 else if(width >= 768){
-                    ctx.font = "2.5vh Impact"
+                    ctx.font = "2.5vh Impact";
                 }
                 else{
-                    ctx.font = "2vh Impact"
+                    ctx.font = "2vh Impact";
                 }
             }
             else{
                 if(width >= 768 && height >= 998){
                     ctx.font = "1.1vh Impact";
+                    r = 0.5*r;
                 }
                 else if(width >= 768){
-                    ctx.font = "2vh Impact"
+                    ctx.font = "2vh Impact";
+                    r= 0.5*r;
                 }
                 else{
-                    ctx.font = "1.2vh Impact"
+                    ctx.font = "1.2vh Impact";
+                    r = 0.55*r;
                 }
                 
             }
+            ctx.beginPath();
+            ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
+            ctx.fillStyle = colors[counter-1];
+            ctx.fill();
+            ctx.stroke();
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillStyle = "black";
@@ -149,6 +152,10 @@ const TreeDraw = (props) => {
             canvas.height = window.innerHeight;
             canvas.width = window.innerWidth;
         }
+        else if(width > 996 & height >= 996)  {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        }
         else if(width < 996 & height > 996)  {
             canvas.height = window.innerHeight;
             canvas.width = 2*window.innerWidth;
@@ -157,9 +164,9 @@ const TreeDraw = (props) => {
             canvas.height = window.innerHeight;
             canvas.width = 2*window.innerWidth;
         }
-        
+        context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
-      }, [draw,width,height]);
+      }, [draw]);
     
 
     return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)

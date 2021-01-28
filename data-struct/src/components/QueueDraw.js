@@ -7,7 +7,7 @@ const QueueDraw = (props) => {
     const [width, height] = useWindow();
     let x, y, w, h;
     const draw = ctx => {
-        if(width >= 540 && height > 998) {
+        if(width >=  768 && height > 998) {
             x = width/75;
             y = height/50;
             w = width/20;
@@ -20,10 +20,10 @@ const QueueDraw = (props) => {
         h = width/15;
         }
         else{
-        x = 0;
+        x = width/20;
         y = height/50;
-        w = width/12.5;
-        h = width/15;
+        w = width/16;
+        h = width/12;
         }
         ctx.fillStyle = '#000000';
         for(var i = props.data.length - 1; i >= 0; i--) {
@@ -67,8 +67,9 @@ const QueueDraw = (props) => {
             canvas.height = window.innerHeight*.25;
             canvas.width = 3*window.innerWidth;
         }
+        context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
-      }, [draw, width, height]);
+      }, [draw]);
     
 
         return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)

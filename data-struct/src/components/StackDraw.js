@@ -44,8 +44,9 @@ const StackDraw = (props) => {
         const context = canvas.getContext('2d');
         canvas.width = 0.3*window.innerWidth;
         canvas.height = window.innerHeight;
+        context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
-      }, [draw, width, height]);
+      }, [draw]);
     
 
         return ( <canvas className = "canvas stkCanvas" ref = {canvasRef} {...props} />)

@@ -95,8 +95,9 @@ const ListDrawS = (props) => {
             canvas.height = window.innerHeight*.25;
             canvas.width = 3*window.innerWidth;
         }
+        context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
-      }, [draw, width, height]);
+      }, [draw]);
     
 
         return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)
