@@ -5,38 +5,18 @@ import useWindow from "../utils/useWindow";
 const TreeDraw = (props) => {
     const canvasRef = useRef(null);
     const [width, height] = useWindow();
-    console.log(width, height)
-    let x, y, w, h, r;
+    console.log(width, height);
+    let stW = 900;
+    let stH = 900;
+    let ratio = stW/stH; 
+    let x, y, w, h, r
     let colors = ["red", "deepskyblue", "lime", "mediumpurple", "yellow", "salmon", "white", "white"];
-    const draw = ctx => {
-        if(window.screen.width <= 540){
-            x = 0.6*width;
-            y = height/20;
-            w = width/4;
-            h = width/6;
-            r = width/28;
-        }
-        else if(width >= 768 && height >= 998){
-            x = width/2;
-            y = height/15;
-            w = width/5;
-            h = width/10;
-            r = width/50;
-            }
-        else if(width >= 768){
-            x = width/2;
-            y = height/20;
-            w = width/10;
-            h = width/20; 
-            r = width/75;
-        }
-        else{
-            x = 0.6*width;
-            y = height/20;
-            w = width/4;
-            h = width/6;
-            r = width/28;
-        }
+    const draw = ctx => { 
+        x = width/2;
+        y = 0.1*height;
+        w = width * (200/stW);
+        h = height * (150/stH);
+        r = width*(20/stW);
        
         const H = h;
         const W = w; 
@@ -127,17 +107,6 @@ const TreeDraw = (props) => {
             let yS = m*(xQ2) + c; // y = mx + c; 
             let xE = xQ1 + w;
             let yE = m*(xQ1 +  w) + c;
-            // ctx.beginPath();
-            // ctx.arc(xC, yC, r, 0*Math.PI, 2*Math.PI);
-            // ctx.fillStyle = colors[counter-1];
-            // ctx.stroke();
-            // ctx.fill();
-            // (width >= 768) ? ctx.font = "3vh Arial": ctx.font = "2vh Arial";
-            // counter >= 5 && (ctx.font = "1vh Arial");
-            // ctx.textAlign="center"; 
-            // ctx.textBaseline = "middle";
-            // ctx.fillStyle = "black";
-            // ctx.fillText(subroot.val, xC, yC);
             ctx.beginPath();
             ctx.moveTo(xS, yS);
             ctx.lineTo(xE, yE);
@@ -155,23 +124,8 @@ const TreeDraw = (props) => {
         
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        if(window.screen.width <= 540) { // IS this a mobile device
-            canvas.height = window.innerHeight;
-            canvas.width = 2*window.innerWidth;
-        }
-        else if(width > 996 & height < 996)  {
-            canvas.height = window.innerHeight;
-            canvas.width = window.innerWidth;
-        }
-        else if(width > 996 & height >= 996)  {
-            canvas.height = window.innerHeight;
-            canvas.width = window.innerWidth;
-        }
-        else if(width < 996 & height > 996)  {
-            canvas.height = window.innerHeight;
-            canvas.width = 2*window.innerWidth;
-        }
-        
+            canvas.width = ratio * width;
+            canvas.height = height*1200/stH;
         context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
       }, [draw]);
