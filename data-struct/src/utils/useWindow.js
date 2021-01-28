@@ -1,9 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useLayoutEffect} from 'react';
 function useWindowSize() {
     const [size, setSize] = useState([0,0]);
-    useEffect(() => {
+    const [deviceSize, setDeviceSize] = useState([0,0]);
+    useLayoutEffect(() => {
       function updateSize() {
-          setSize([window.innerWidth, window.innerHeight])
+        if(window.screen.width !== deviceSize[0] || window.screen.height !== deviceSize[1])
+          setSize([window.innerWidth, window.innerHeight]);
+          setDeviceSize([window.screen.width, window.screen.height]);
       }
       window.addEventListener('resize', updateSize);
       updateSize();
