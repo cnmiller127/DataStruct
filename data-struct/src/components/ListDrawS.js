@@ -4,7 +4,8 @@ import useWindow from "../utils/useWindow";
 
 const ListDrawS = (props) => {
     const canvasRef = useRef(null);
-    const [width, height] = useWindow();
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     let x, y, w, h, lw, al;
     let arrowAng = 20 * Math.PI/180;
     const draw = ctx => {

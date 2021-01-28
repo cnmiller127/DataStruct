@@ -4,7 +4,8 @@ import useWindow from "../utils/useWindow";
 
 const ArrDraw = (props) => {
     const canvasRef = useRef(null);
-    const [width, height] = useWindow();
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     let x, y, w, h;
     const draw = ctx => {
         if(width >= 768){
