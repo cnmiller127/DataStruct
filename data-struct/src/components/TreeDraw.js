@@ -148,7 +148,11 @@ const TreeDraw = (props) => {
         
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        if(width > 996 & height < 996)  {
+        if(window.screen.width <= 540) { // IS this a mobile device
+            canvas.height = window.innerHeight;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width > 996 & height < 996)  {
             canvas.height = window.innerHeight;
             canvas.width = window.innerWidth;
         }
@@ -160,10 +164,7 @@ const TreeDraw = (props) => {
             canvas.height = window.innerHeight;
             canvas.width = 2*window.innerWidth;
         }
-        else if(width < 540) {
-            canvas.height = window.innerHeight;
-            canvas.width = 2*window.innerWidth;
-        }
+        
         context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
       }, [draw]);
