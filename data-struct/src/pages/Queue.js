@@ -71,13 +71,14 @@ const Queue = () => {
                 </p>
                 <p className = "p-1 px-md-5">  </p>
             </div>
-            <div className = "row no-gutters" >
+            
                 <Button color = "success" className = "btn" onClick = {handleEQ}>Enqueue</Button>
                 <Button color = "warning" className = "btn" onClick = {handleDQ}>Dequeue</Button>
+                <div className = "row no-gutters" >
                 {(method === "enQ") && (
                 <Form className = "form">
                     <Label>Value to enqueue: </Label>
-                    <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                    <Input className = "input" onChange = {handleChange} value = {formData} type = "number"></Input>
                     <Button className = "btn enterBtn" color = "dark" onClick = {handleEnterEQ}>ENTER</Button>
                 </Form>
                 )}
@@ -87,7 +88,7 @@ const Queue = () => {
                         <Button className = "btn enterBtn" color = "dark" onClick = {handleEnterDQ}>ENTER</Button>
                     </div>
                 }
-                <div className = "row no-gutters">
+                <div className = "row no-gutters justify-content-center p-md-3">
                     <QueueDraw data = {arr} />
                 </div>
             </div>

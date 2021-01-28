@@ -9,11 +9,11 @@ const ListDrawS = (props) => {
     let arrowAng = 20 * Math.PI/180;
     const draw = ctx => {
         // Ipad
-        if(width >= 540 && height > 998) {
+        if(width >= 768 && height > 998) {
             x = width/300;
             y = height/50;
-            w = width/40;
-            h = width/40;
+            w = width/25;
+            h = width/30;
             lw = width/50;
             al = 12;
         }
@@ -24,15 +24,22 @@ const ListDrawS = (props) => {
         h = width/40;
         lw = width/50;
         al = 12;
-        
         }
+        else if(width < 768 && width > 540){
+            x = width/150;
+            y = height/50;
+            w = width/35;
+            h = width/25;
+            lw = width/30;
+            al = 123;
+            }
         else{
         x = 0;
         y = height/50;
         w = width/15;
         h = width/15;
         lw = width/30;
-        al = 10;
+        al = 5;
         
         }
         ctx.fillStyle = '#000000';
@@ -54,11 +61,11 @@ const ListDrawS = (props) => {
                 ctx.lineTo(x + w + i*(w + lw) + lw - al*Math.cos(arrowAng), y + 1.5*h - al*Math.sin(arrowAng));
                 ctx.stroke();
             }
-            (width >= 996) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
+            (width >= 998) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(p.val, x + 0.5*w + i*w + i*lw, y + 0.5*h);
-            (width >= 996) ? ctx.font = "1.5vh Arial": ctx.font = "1vh Arial";
+            (width >= 998) ? ctx.font = "1.2vh Arial": ctx.font = "1vh Arial";
             i===0 ? ctx.fillText("Front", x + 0.5*w + i*w + i*lw, y + 1.3*h): ctx.fillText("*", x + 0.5*w + i*w + i*lw, y + 1.3*h)
             ctx.fillText(i, x + 0.5*w + i*w + i*lw, y + 2.3*h)
             p = p.next;
@@ -72,20 +79,24 @@ const ListDrawS = (props) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         
-        if(width > 996 & height < 996)  {
+        if(width > 996 && height < 996)  {
             canvas.height = window.innerHeight*0.2;
             canvas.width = 2*window.innerWidth;
         }
-        else if(width < 996 & height > 996)  {
-            canvas.height = window.innerHeight*0.05;
+        else if(width > 996 && height > 996)  {
+            canvas.height = window.innerHeight*0.1;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width < 996 && height > 996)  {
+            canvas.height = window.innerHeight*0.08;
             canvas.width = 2*window.innerWidth;
         }
         else if(width < 540) {
-            canvas.height = window.innerHeight*.1;
+            canvas.height = window.innerHeight*.15;
             canvas.width = 3*window.innerWidth;
         }
         draw(context);
-      }, [draw]);
+      }, [draw, width, height]);
     
 
         return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)

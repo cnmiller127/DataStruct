@@ -43,7 +43,7 @@ const Array = () => {
     //Change for push, unshift
     const handleChange = (e) => {
         e.preventDefault();
-        e.target.value ? setFormData(parseInt(e.target.value)) : setFormData(" ");
+        e.target.value ? setFormData(e.target.value) : setFormData(" ");
         
     }
     //PUSH 
@@ -64,12 +64,11 @@ const Array = () => {
     // INSERT: 
     const handleChangeI = (e) => {
         e.preventDefault();
-        e.target.value ? setInsFormData({...insFormData, index: parseInt(e.target.value)}) : setInsFormData({...insFormData, index: " "});
-        
+        e.target.value ? setInsFormData({...insFormData, index: e.target.value}) : setInsFormData({...insFormData, index: " "});
     }
     const handleChangeV = (e) => {
         e.preventDefault();
-        e.target.value ? setInsFormData({...insFormData, value: parseInt(e.target.value)}) : setInsFormData({...insFormData, value: " "});
+        e.target.value ? setInsFormData({...insFormData, value: e.target.value}) : setInsFormData({...insFormData, value: " "});
     }
     const handleEnterIns = (e) => {
         e.preventDefault();
@@ -138,7 +137,7 @@ const Array = () => {
             {(method === "push") && (
             <Form className = "form">
                 <Label>Value to push: </Label>
-                <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                <Input className = "input" onChange = {handleChange} value = {formData} type = "number"></Input>
                 <Button className = "btn enterBtn" color = "dark" onClick = {handleEnterPush}>ENTER</Button>
             </Form>
             )}
@@ -152,9 +151,9 @@ const Array = () => {
                 <div>
                 <Form className = "form">
                     <Label className="btnLabel">Index to Insert: </Label>
-                    <Input onChange = {handleChangeI} value = {formData.index}></Input>
+                    <Input onChange = {handleChangeI} value = {formData.index} type = "number"></Input>
                     <Label>Value to Insert: </Label>
-                    <Input className = "input" onChange = {handleChangeV} value = {formData.value}></Input>
+                    <Input className = "input" onChange = {handleChangeV} value = {formData.value} type = "number"></Input>
                 <Button className = "btn enterBtn" color = "dark" onClick = {handleEnterIns}>ENTER</Button>
                 </Form>
                 </div>
@@ -163,7 +162,7 @@ const Array = () => {
                 <div>
                     <Form className = "form">
                         <Label className="btnLabel">Index to Delete: </Label>
-                        <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                        <Input className = "input" onChange = {handleChange} value = {formData} type = "number"></Input>
                         <Button className = "btn enterBtn" color = "dark" onClick = {handleEnterDelete}>ENTER</Button>
                     </Form>  
                 </div>
@@ -178,7 +177,7 @@ const Array = () => {
                 <div>
                     <Form className = "form">
                         <Label className="btnLabel">Value to prepend: </Label>
-                        <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                        <Input className = "input" onChange = {handleChange} value = {formData} type = "number"></Input>
                         <Button className = "btn enterBtn" color = "dark" onClick = {handleEnterUnshift}>ENTER</Button>
                     </Form>
                 </div>

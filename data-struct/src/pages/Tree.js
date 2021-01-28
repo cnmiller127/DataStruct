@@ -27,9 +27,9 @@ function Tree () {
 
     const handleEnterIns = (e) => {
         e.preventDefault();
-        if(parseInt(insFormData)){
+        if(insFormData){
             setInsFormData("");
-            tree.insert(parseInt(insFormData));
+            tree.insert(insFormData);
             setTreeSrc({...tree.tree});
         }
         else{
@@ -79,19 +79,23 @@ function Tree () {
                         If using C/C++, memory needs to be manually dynamicaly allocated in the heap. Nodes would be created in the heap that point to their children. When accessing information from the tree, a pointer to the address of the root node must be used.
                     </p>
             </div>
-            <div className = "row no-gutters px-5 justify-content-center">
-                <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
+            {(method === "insert") && 
+            <div>
+                <div className = "row no-gutters px-5 justify-content-center">
+                    <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
+                </div>
+                <div className = "row no-gutters px-5 justify-content-center">
+                    <Form className = "form" onSubmit = {handleEnterIns}>
+                        <Label>Value to Insert: </Label>
+                        <Input className = "input" onChange = {handleChange} value = {insFormData} type = "number"></Input>
+                        <Button className = "btn" onClick = {handleEnterIns}>Enter</Button>
+                    </Form>
+                </div>
+                <div >
+                    <TreeDraw data = {treeSrc} />
+                </div>
             </div>
-            <div className = "row no-gutters px-5 justify-content-center">
-                <Form className = "form" onSubmit = {handleEnterIns}>
-                    <Label>Value to Insert: </Label>
-                    <Input className = "input" onChange = {handleChange} value = {insFormData}></Input>
-                    <Button className = "btn" onClick = {handleEnterIns}>Enter</Button>
-                </Form>
-            </div>
-            <div >
-                <TreeDraw data = {treeSrc} />
-            </div>
+            }
         </div>
     )
 

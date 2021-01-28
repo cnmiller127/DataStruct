@@ -7,19 +7,23 @@ const QueueDraw = (props) => {
     const [width, height] = useWindow();
     let x, y, w, h;
     const draw = ctx => {
-        if(width >= 768){
-        x = width/300;
+        if(width >= 540 && height > 998) {
+            x = width/75;
+            y = height/50;
+            w = width/20;
+            h = width/10;
+        }
+        else if(width >= 768){
+        x = width/20;
         y = height/50;
-        w = width/40;
-        h = width/40;
-        
+        w = width/25;
+        h = width/15;
         }
         else{
         x = 0;
         y = height/50;
-        w = width/15;
+        w = width/12.5;
         h = width/15;
-        
         }
         ctx.fillStyle = '#000000';
         for(var i = props.data.length - 1; i >= 0; i--) {
@@ -31,7 +35,7 @@ const QueueDraw = (props) => {
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w + opp*w, y + 0.5*h);
-            (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
+            (width >= 768) ? ctx.font = "1.2vh Arial": ctx.font = "1vh Arial";
             if(i === props.data.length - 1){
                 ctx.fillText("FIRST", x + 0.5*w + opp*w, y + 1.3*h);
             }
@@ -44,13 +48,27 @@ const QueueDraw = (props) => {
       }
       
       useEffect(() => {
-        
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = 0.1*window.innerHeight;
+        
+        if(width > 996 & height < 996)  {
+            canvas.height = window.innerHeight;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width >= 768 & height >= 768)  {
+            canvas.height = window.innerHeight;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width < 996 & height > 996)  {
+            canvas.height = window.innerHeight*0.08;
+            canvas.width = 2*window.innerWidth;
+        }
+        else if(width < 540) {
+            canvas.height = window.innerHeight*.15;
+            canvas.width = 3*window.innerWidth;
+        }
         draw(context);
-      }, [draw]);
+      }, [draw, width, height]);
     
 
         return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)

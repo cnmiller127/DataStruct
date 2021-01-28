@@ -81,7 +81,7 @@ const Stack = () => {
                     {(method === "push") && (
                     <Form className = "form float-md-right">
                         <Label>Value to push: </Label>
-                        <Input className = "input" onChange = {handleChange} value = {formData}></Input>
+                        <Input className = "input" onChange = {handleChange} value = {formData} type = "number"></Input>
                         <Button className = "btn enterBtn stkComp" color = "dark" onClick = {handleEnterPush}>ENTER</Button>
                     </Form>
                     )}
