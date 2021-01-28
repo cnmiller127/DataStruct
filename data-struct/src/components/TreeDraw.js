@@ -4,7 +4,9 @@ import useWindow from "../utils/useWindow";
 
 const TreeDraw = (props) => {
     const canvasRef = useRef(null);
-    const [width, height] = useWindow();
+    //const [width, height] = useWindow();
+    const width = window.innerWidth;
+    const height = window.innerHeight; 
     console.log(width, height);
     let stW = 900;
     let stH = 900;
