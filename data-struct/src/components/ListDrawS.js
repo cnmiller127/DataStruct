@@ -92,7 +92,7 @@ const ListDrawS = (props) => {
             canvas.width = 2*window.innerWidth;
         }
         else if(width < 540) {
-            canvas.height = window.innerHeight*.15;
+            canvas.height = window.innerHeight*.25;
             canvas.width = 3*window.innerWidth;
         }
         draw(context);

@@ -42,14 +42,25 @@ const ArrDraw = (props) => {
         
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = 0.1*window.innerHeight;
-        // canvas.style.width = window.innerWidth;
-        // canvas.style.height = 0.6*window.innerHeight;
-        //context.clearRect(0,0,canvas.width, canvas.height);
+        if(width > 996 & height < 996)  {
+          canvas.height = window.innerHeight;
+          canvas.width = 2*window.innerWidth;
+      }
+      else if(width >= 768 & height >= 768)  {
+          canvas.height = window.innerHeight;
+          canvas.width = 2*window.innerWidth;
+      }
+      else if(width < 996 & height > 996)  {
+          canvas.height = window.innerHeight*0.08;
+          canvas.width = 2*window.innerWidth;
+      }
+      else if(width < 540) {
+          canvas.height = window.innerHeight*.25;
+          canvas.width = 3*window.innerWidth;
+      }
         
         draw(context);
-      }, [draw]);
+      }, [draw, width, height]);
     
 
         return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)

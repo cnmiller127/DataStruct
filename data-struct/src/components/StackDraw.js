@@ -45,7 +45,7 @@ const StackDraw = (props) => {
         canvas.width = 0.3*window.innerWidth;
         canvas.height = window.innerHeight;
         draw(context);
-      }, [draw]);
+      }, [draw, width, height]);
     
 
         return ( <canvas className = "canvas stkCanvas" ref = {canvasRef} {...props} />)

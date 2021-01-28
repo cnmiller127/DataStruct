@@ -141,7 +141,7 @@ const TreeDraw = (props) => {
         }
         
         draw(context);
-      }, [draw]);
+      }, [draw,width,height]);
     
 
     return ( <canvas className = "canvas" ref = {canvasRef} {...props} />)
