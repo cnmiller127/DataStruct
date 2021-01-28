@@ -9,7 +9,14 @@ const TreeDraw = (props) => {
     let x, y, w, h, r;
     let colors = ["red", "deepskyblue", "lime", "mediumpurple", "yellow", "salmon", "white", "white"];
     const draw = ctx => {
-        if(width >= 768 && height >= 998){
+        if(window.screen.width <= 540){
+            x = 0.6*width;
+            y = height/20;
+            w = width/4;
+            h = width/6;
+            r = width/28;
+        }
+        else if(width >= 768 && height >= 998){
             x = width/2;
             y = height/15;
             w = width/5;
