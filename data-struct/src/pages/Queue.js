@@ -64,11 +64,20 @@ const Queue = () => {
             </div>
             <div className = "row no-gutters justify-content-center">
                 <p className = "pt-2 px-1 pt-md-3 px-md-5">The Queue operates on the First In First Out (FIFO) principle.
-                Queues may be implemented using linked lists or arrays. Queues have two functions, enqueue and dequeue. Enqueue adds data to the 
+                Queues may be implemented using linked lists or arrays. Queues have two operations, enqueue and dequeue. Enqueue adds data to the 
                 back while dequeue removes and returns the data at the front of the structure. 
                 There are also other ways to implement the queue such as the 
-                circular queue.
+                circular buffer (circular queue), priority queues, and dequeues.
                 </p>
+                <p>There are several draw backs with the implementation of a queue as an array. Enqueueing is O(n) time because everything needs to be shifted in the array. This 
+                    can be avoided by tracking the first occupied index in the array, but empty indices will be left in the beginning of the array. The linked list implementation can allow for O(1) enqueue and dequeue operations. If it is singly linked, a pointer at the end 
+                    must be maintained for O(1) dequeueing. If it is doubly linked list, no modifications are necessary for constant time operations. 
+                </p>
+                <ol>Variations
+                    <li>Circular buffer - Data is kept in an array with a  front and rear pointer. Data is not removed, instead the data between the front (including) and rear (excluding) pointers define the state of the queue. When they are equal, the queue is empty. When tail is one behind the head it is full. When the pointers get to the end of the array, they have to be set to the other end of the array, imitating a circle.  This is useful in cyclical functions.</li>
+                    <li>Priority queue - Data entries have a priority associated with them. The entry with the highest priority will be enqueued next. If priority levels are the same, the FIFO principle is maintained.</li>
+                    <li>Deque- Double ended queue that allows for enqueue and dequeue operations at either side. This structure provides many forms of implementation as it may be used as a stack, queue, or hybrid of the two. It allows for O(1) enqueue and dequeue operations at either side. </li>
+                </ol>
                 <p className = "p-1 px-md-5">  </p>
             </div>
             

@@ -224,6 +224,11 @@ function LinkedListS (props)  {
                     <li>Update - data is updated in a specified node</li>
                     <li>Search - locates a specified piece of data and returns it</li>
                 </ol>
+                <p>This linked list was created in Javascript by creating an object (node) that has a value property and one other property that points to the 
+                        next node in the list. Objects are often (depending on the engine implementation) created in the heap memory in Javascript which means they are called by reference.
+                        If using C/C++, memory needs to be manually dynamicaly allocated in the heap. Nodes would be created in the heap that point to the next node, chaining a series of nodes. When accessing information from the linked list, a pointer to the address of the front node must be maintained.
+                        This memory must be manually released to avoid memory leaks. 
+                    </p>
             </div>
         </div> 
         

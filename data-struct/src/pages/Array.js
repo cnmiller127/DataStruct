@@ -187,7 +187,8 @@ const Array = () => {
                     They are capable of storing primitive data types, other objects (including arrays), and combinations of both in JavaScript. In a lower level language like C, 
                     they can only store one primitive data type and are a fixed size. If arrays are statically allocated, they are stored in the stack memory and the size must be known at compile time.
                     If the size needs to be specified during
-                    run-time, the array must be manually dynamically allocated in the heap using the malloc() function, and must be released once it is obsolete by the program using the free() function.</p>
+                    run-time, the array must be manually dynamically allocated in the heap using the malloc() function, and must be released once it is obsolete by the program using the free() function. In both languages,
+                    arrays provide random access retrieval, meaning an index of an array is specified and it is accessed in constant O(1) time.</p>
                 <ol> <strong>List of Array Functions </strong>
                     <li>Push- inserts new entry after last index of array</li>
                     <li>Pop - removes and returns last entry in the array</li>
@@ -198,8 +199,7 @@ const Array = () => {
                 </ol>
                 <p>Functions that deal with the end of the array like push and pop are executed in consant time O(1). However, functions
                     that deal with the beginning of the array like shift and unshift take linear time O(n) because all of the data needs to
-                    be shifted within the array. Insert and delete (splice in JS) can take O(1) to O(n) time depending on their location in the array, 
-                    the latter time  being closer to the beginning of the array due to shifting. 
+                    be shifted within the array. Insert and delete (splice in JS) can take O(1) to O(n) time depending on their location in the array (end of array vs. beginning of array, respectively).
                 </p>
             </div>
         </div> 

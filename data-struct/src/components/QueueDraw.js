@@ -44,12 +44,19 @@ const QueueDraw = (props) => {
                 ctx.fill();
             }
             ctx.stroke();
-            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
+            if(width >= 998) {
+                ctx.font = "16px Arial";
+            }
+            else if (width < 998 && width >= 540) {
+                ctx.font = "14px Arial";
+            }
+            else {
+                ctx.font = "11px Arial";
+            }
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillStyle = "black";
             ctx.fillText(props.data[i], x + 0.5*w + opp*w, y + 0.5*h);
-            (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1vw Arial";
             if(i === props.data.length - 1){
                 ctx.fillText("FIRST", x + 0.5*w + opp*w, y + 1.3*h);
             }
