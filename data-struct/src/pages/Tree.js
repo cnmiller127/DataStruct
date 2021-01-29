@@ -71,7 +71,7 @@ function Tree () {
                     the nodes were ordered in a unary structure (i.e arrays).</p>
                     <p>Notice for each level (K) of the tree, the number of nodes increases from the level above it by a factor of two. 
                         Total Nodes(N) = 2<sup>0</sup> + 2<sup>1</sup> + 2<sup>2</sup> + 2<sup>3</sup>... + 2<sup>K</sup>. This
-                        simplifies to Total Nodes(N) = 2<sup>K+1</sup> - 1, where K = 0  at the root node and increases by 1 every
+                        simplifies to Total Nodes(N) = 2<sup>K</sup> - 1, where K = 0  at the root node and increases by 1 every
                         level down the tree. 
                     </p>
                     <p>This tree was created in Javascript by creating an object (node) that has a value property, and two other properties that point to its 
