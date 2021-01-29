@@ -8,21 +8,40 @@ const StackDraw = (props) => {
     const height = window.innerHeight;
     let x, y, w, h;
     const draw = ctx => {
-        if(width >= 768){
+      if(width >= 768 && height > 998) {
         x = width/50;
         y = height/50;
         w = width/8;
-        h = width/50;
-        
-        }
-        else{
-        x = width/20;
+        h = height/25;
+    }
+    else if(width >= 768){
+    x = width/50;
+    y = height/50;
+    w = width/25;
+    h = width/20;
+    }
+    else if(width < 768 && width > 540){
+        x = width/50;
         y = height/50;
-        w = width/8;
-        h = width/16;
-        
+        w = width/10;
+        h = width/15;
         }
+    else{
+    x = width/20;
+    y = height/50;
+    w = width/6;
+    h = width/10;    
+    }
         ctx.fillStyle = '#000000';
+      if(height >= 998) {
+        ctx.font = "18px Arial";
+      }
+      else if (height < 998 && height >= 540) {
+          ctx.font = "16px Arial";
+      }
+      else {
+          ctx.font = "12px Arial";
+      }
         for(var i = props.data.length - 1; i >= 0; i--) {
             let opp = props.data.length - 1 - i; 
             ctx.beginPath();
@@ -36,14 +55,11 @@ const StackDraw = (props) => {
               ctx.fill();
             }
             ctx.stroke();
-            (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillStyle = "black";
             ctx.fillText(props.data[i], x + 0.5*w, y + 0.5*h + opp*h);
-            (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
             ctx.fillText(i, 0.5*x, y + 0.5*h + opp*h);
-            
         }
         
       }

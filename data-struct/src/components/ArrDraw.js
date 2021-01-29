@@ -8,20 +8,25 @@ const ArrDraw = (props) => {
     const height = window.innerHeight;
     let x, y, w, h;
     const draw = ctx => {
-        if(width >= 768){
-        x = width/300;
+        if(width >=  768 && height > 998) {
+            x = width/75;
+            y = height/50;
+            w = width/15;
+            h = width/15;
+        }
+        else if(width >= 768){
+        x = width/20;
         y = height/50;
         w = width/20;
         h = width/20;
-        
         }
         else{
-        x = 0;
+        x = width/20;
         y = height/50;
         w = width/15;
         h = width/15;
-        
         }
+   
         ctx.fillStyle = '#000000';
         for(var i = 0; i < props.data.length; i++) {
             ctx.fillStyle = "black";
@@ -50,19 +55,19 @@ const ArrDraw = (props) => {
         const context = canvas.getContext('2d');
         if(width > 996 & height < 996)  {
           canvas.height = window.innerHeight*0.2;
-          canvas.width = 2*window.innerWidth;
+          canvas.width = window.innerWidth;
       }
       else if(width >= 768 & height >= 768)  {
           canvas.height = window.innerHeight*0.2;
-          canvas.width = 2*window.innerWidth;
+          canvas.width = window.innerWidth;
       }
       else if(width < 996 & height > 996)  {
           canvas.height = window.innerHeight*0.08;
-          canvas.width = 2*window.innerWidth;
+          canvas.width = window.innerWidth;
       }
       else if(width < 540) {
-          canvas.height = window.innerHeight*.25;
-          canvas.width = 3*window.innerWidth;
+          canvas.height = window.innerHeight*.1;
+          canvas.width = 2*window.innerWidth;
       }
         context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
