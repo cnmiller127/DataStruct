@@ -53,7 +53,7 @@ const TreeDraw = (props) => {
                 }
                 else{
                     ctx.font = "1.3vh Impact";
-                    r = 0.65*r;
+                    r = 0.75*r;
                 }
                 
             }
@@ -126,8 +126,8 @@ const TreeDraw = (props) => {
         
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
-            canvas.width = ratio * width;
-            canvas.height = height*1200/stH;
+        canvas.width = ratio * width;
+        canvas.height = height*1200/stH;
         context.clearRect(0, 0, canvas.width, canvas.height);
         draw(context);
       }, [draw]);

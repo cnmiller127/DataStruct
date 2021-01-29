@@ -31,12 +31,25 @@ const QueueDraw = (props) => {
             let opp = props.data.length - 1 - i;
             ctx.beginPath();
             ctx.rect(x + opp*w, y, w, h);
+            if(i === props.data.length - 1){
+                ctx.fillStyle = "green";
+                ctx.fill();
+            }
+            else if(i === 0) {
+                ctx.fillStyle = "red";
+                ctx.fill();
+            }
+            else{
+                ctx.fillStyle = "gold";
+                ctx.fill();
+            }
             ctx.stroke();
             (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
+            ctx.fillStyle = "black";
             ctx.fillText(props.data[i], x + 0.5*w + opp*w, y + 0.5*h);
-            (width >= 768) ? ctx.font = "1.2vh Arial": ctx.font = "1vh Arial";
+            (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1vw Arial";
             if(i === props.data.length - 1){
                 ctx.fillText("FIRST", x + 0.5*w + opp*w, y + 1.3*h);
             }

@@ -49,8 +49,14 @@ const ListDrawS = (props) => {
         let i = 0;
         while(p) {
             ctx.beginPath();
+            ctx.fillStyle = "orange";
             ctx.rect(x + i*w + i*lw, y, w, h);
+            ctx.fill();
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.fillStyle = "blue";
             ctx.rect(x + i*w + i*lw, y + h, w, h);
+            ctx.fill();
             ctx.stroke();
             if(p.next) {
                 ctx.beginPath();
@@ -65,9 +71,11 @@ const ListDrawS = (props) => {
             (width >= 998) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
+            ctx.fillStyle = "black";
             ctx.fillText(p.val, x + 0.5*w + i*w + i*lw, y + 0.5*h);
-            (width >= 998) ? ctx.font = "1.2vh Arial": ctx.font = "1vh Arial";
-            i===0 ? ctx.fillText("Front", x + 0.5*w + i*w + i*lw, y + 1.3*h): ctx.fillText("*", x + 0.5*w + i*w + i*lw, y + 1.3*h)
+            ctx.fillStyle = "white";
+            (width >= 998) ? ctx.font = "0.7vw Arial": ctx.font = "1vw Arial";
+            i===0 ? ctx.fillText("FRONT", x + 0.5*w + i*w + i*lw, y + 1.3*h): ctx.fillText("*PTR", x + 0.5*w + i*w + i*lw, y + 1.3*h)
             ctx.fillText(i, x + 0.5*w + i*w + i*lw, y + 2.3*h)
             p = p.next;
             i++;

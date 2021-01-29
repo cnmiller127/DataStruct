@@ -72,8 +72,8 @@ const Queue = () => {
                 <p className = "p-1 px-md-5">  </p>
             </div>
             
-                <Button color = "success" className = "btn" onClick = {handleEQ}>Enqueue</Button>
-                <Button color = "warning" className = "btn" onClick = {handleDQ}>Dequeue</Button>
+                <Button color = "danger" className = "btn" onClick = {handleEQ}>Enqueue</Button>
+                <Button color = "success" className = "btn" onClick = {handleDQ}>Dequeue</Button>
                 <div className = "row no-gutters" >
                 {(method === "enQ") && (
                 <Form className = "form">

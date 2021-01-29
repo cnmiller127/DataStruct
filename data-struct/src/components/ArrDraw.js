@@ -11,8 +11,8 @@ const ArrDraw = (props) => {
         if(width >= 768){
         x = width/300;
         y = height/50;
-        w = width/40;
-        h = width/40;
+        w = width/20;
+        h = width/20;
         
         }
         else{
@@ -24,15 +24,20 @@ const ArrDraw = (props) => {
         }
         ctx.fillStyle = '#000000';
         for(var i = 0; i < props.data.length; i++) {
-            
+            ctx.fillStyle = "black";
+            ctx.strokeStyle = "yellow";
+            ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.rect(x + i*w, y, w, h);
             ctx.stroke();
+            ctx.fill();
+            ctx.fillStyle = "yellow";
             (width >= 768) ? ctx.font = "2.5vh Arial": ctx.font = "2vh Arial";
             ctx.textAlign="center"; 
             ctx.textBaseline = "middle";
             ctx.fillText(props.data[i], x + 0.5*w + i*w, y + 0.5*h);
             (width >= 768) ? ctx.font = "2vh Arial": ctx.font = "1.5vh Arial";
+            ctx.fillStyle = "black";
             ctx.fillText(i, x + 0.5*w + i*w, y + 1.3*h);
             
         }
@@ -44,11 +49,11 @@ const ArrDraw = (props) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
         if(width > 996 & height < 996)  {
-          canvas.height = window.innerHeight;
+          canvas.height = window.innerHeight*0.2;
           canvas.width = 2*window.innerWidth;
       }
       else if(width >= 768 & height >= 768)  {
-          canvas.height = window.innerHeight;
+          canvas.height = window.innerHeight*0.2;
           canvas.width = 2*window.innerWidth;
       }
       else if(width < 996 & height > 996)  {
