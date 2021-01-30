@@ -69,10 +69,10 @@ const ListDrawS = (props) => {
                 ctx.stroke();
             }
             if(width >= 998) {
-                ctx.font = "16px Arial";
+                ctx.font = "14px Arial";
             }
             else if (width < 998 && width >= 540) {
-                ctx.font = "14px Arial";
+                ctx.font = "12.5px Arial";
             }
             else {
                 ctx.font = "11px Arial";
