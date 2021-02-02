@@ -90,7 +90,9 @@ function Tree () {
                         level down the tree. 
                     </p>
                     <p>This tree was created in Javascript by creating an object (node) that has a value property, and two other properties that point to its 
-                        left and right children. Objects are often (depending on the engine implementation) created in the heap memory in Javascript which means they are called by reference.
+                        left and right children. For the insert and delete functions, nodes are rotated to keep the tree balanced. A node's internal contents are not changed during these operations.
+                        For insert, a new node is simply created and properly placed in the tree, but for delete, a value is searched. If located, the node containing that value is removed from the tree and deleted by garbage collection. 
+                        Entire node objects are rotated while the data inside them is maintained. This is beneficial when dealing with multiple pieces of data in a node. Objects are often (depending on the engine implementation) created in the heap memory in Javascript which means they are called by reference.
                         If using C/C++, memory needs to be manually dynamicaly allocated in the heap. Nodes would be created in the heap that point to their children. When accessing information from the tree, a pointer to the address of the root node must be used.
                     </p>
             </div>
