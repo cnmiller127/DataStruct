@@ -17,6 +17,10 @@ function Tree () {
         e.preventDefault();
         setMethod("insert");
     }
+    const handleDelete = (e) => {
+        e.preventDefault();
+        setMethod("delete");
+    }
     // Methods for tree mutation
     
     // INSERT: 
@@ -33,7 +37,18 @@ function Tree () {
             setTreeSrc({...tree.tree});
         }
         else{
-            setInsFormData("Invalid Entry");
+            setInsFormData("INV!");
+        }
+    }
+    const handleEnterDelete = (e) => {
+        e.preventDefault();
+        if(insFormData) {
+            setInsFormData("");
+            tree.delete(Number(insFormData));
+            setTreeSrc({...tree.tree});
+        }
+        else {
+            setInsFormData("INV!");
         }
     }
   
@@ -79,16 +94,31 @@ function Tree () {
                         If using C/C++, memory needs to be manually dynamicaly allocated in the heap. Nodes would be created in the heap that point to their children. When accessing information from the tree, a pointer to the address of the root node must be used.
                     </p>
             </div>
+            <div className = "row no-gutters px-5 justify-content-center">
+                    <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
+                    <Button color = "danger" className = "btn" onClick = {handleDelete}> Delete</Button>
+            </div>
             {(method === "insert") && 
             <div>
-                <div className = "row no-gutters px-5 justify-content-center">
-                    <Button color = "info" className = "btn" onClick = {handleInsert}> Insert</Button>
-                </div>
                 <div className = "row no-gutters px-5 justify-content-center">
                     <Form className = "form" onSubmit = {handleEnterIns}>
                         <Label>Value to Insert: </Label>
                         <Input className = "input" onChange = {handleChange} value = {insFormData} type = "number"></Input>
                         <Button className = "btn" onClick = {handleEnterIns}>Enter</Button>
+                    </Form>
+                </div>
+                <div className = "row no-gutters justify-content-center">
+                    <TreeDraw data = {treeSrc} />
+                </div>
+            </div>
+            }
+            {(method === "delete") && 
+            <div>
+                <div className = "row no-gutters px-5 justify-content-center">
+                    <Form className = "form" onSubmit = {handleEnterDelete}>
+                        <Label>Value to Delete: </Label>
+                        <Input className = "input" onChange = {handleChange} value = {insFormData} type = "number"></Input>
+                        <Button className = "btn" onClick = {handleEnterDelete}>Enter</Button>
                     </Form>
                 </div>
                 <div className = "row no-gutters justify-content-center">

@@ -220,5 +220,66 @@ const balance = (root, val, prev) => {
     console.log("TREE: aftrBal ", this);
 }
 
+bTree.prototype.delete = function (val) {
+function rSearch(root, val, prev) {
+    if(root.val === val) {
+        if(prev) {
+            if(root.val < prev.val) {
+                prev.left = null;
+            }
+            else {
+                prev.right = null; 
+            }
+        }
+        console.log("search root", root);
+        return root;
+    }
+    else if (root.val > val) {
+        return rSearch(root.left, val, root);
+    }
+    else if (root.val < val) {
+        return rSearch(root.right, val, root);
+    }
+    else {
+        return false;
+    }
+}
+const rMerge = (root) =>  {
+    if(root.left) {
+        this.insert(root.left.val);
+        rMerge(root.left);
+    }
+    if(root.right) {
+        this.insert(root.right.val);
+        rMerge(root.right);
+    }
+}
+    let nodeD;
+    
+    nodeD =  rSearch(this.tree.root, val, null);
+    let prev; 
+    if(nodeD) {
+        if(nodeD === this.tree.root) {
+            prev = this.tree.root;
+            if(prev.left) { 
+            this.tree.root = this.tree.root.left;
+            }
+            else if(prev.right) {
+                this.tree.root = this.tree.root.right; 
+            }
+            else {
+                prev.val = null;
+            }
+            rMerge(prev);
+        }
+        else{
+        rMerge(nodeD);
+        }
+        
+    }
+        
+}
+
+
 export default bTree;
 
